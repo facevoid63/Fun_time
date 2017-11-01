@@ -1,4 +1,4 @@
-<form action=<?= "$_SERVER['PHP_SELF']" ?> method="POST">
+<form action=<?= "$_SERVER['PHP_SELF']" ?> method="GET">
   <p>Добрый день!</p>
   <p>Проверим вашу интуицию сегодня? Программа сгенерирует определенное целое цисло в промежутке от 1 до 9 включительно. Вы можете попробовать угадать его, введя предполагаемое сгенерированное число
       в строке ниже. Попробовать угадать можно как до генерации числа, так и после. Если вы хотите угадать уже сгененированное число, нажмите кнопку
@@ -19,11 +19,11 @@ elseif (!is_numeric($_GET["num"])) //не ввелен ли текст или ч
     echo "Извините, сегодня мы принимаем только числа, и только десятичные. Приходите завтра или попробуйте на этот раз ввести другое число";
 }
 
-if(isset($_POST["button1"]))
+if(isset($_GET["button1"]))
 {
-    switch (($_POST["num"]))
+    switch (($_GET["num"]))
     {
-        case($_POST["num"]==$rand1):
+        case($_GET["num"]==$rand1):
             echo "Вы угадали";
             break;
         default:
@@ -31,12 +31,12 @@ if(isset($_POST["button1"]))
     }
 }
 
-if(isset($_POST["button2"]))
+if(isset($_GET["button2"]))
 {
     $rand2=rand(1,9);
-    switch (($_POST["num"]))
+    switch (($_GET["num"]))
     {
-        case($_POST["num"]==$rand2):
+        case($_GET["num"]==$rand2):
             echo "Вы угадали";
             break;
         default:
